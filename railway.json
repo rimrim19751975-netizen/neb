@@ -1,0 +1,9 @@
+{
+  "services": [
+    {
+      "name": "ai-academy",
+      "buildCommand": "npm install && npm run build",
+      "startCommand": "npm start"
+    }
+  ]
+}

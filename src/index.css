@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Noto Naskh Arabic", "Liberation Sans", sans-serif;
+}
+
+[dir="rtl"] {
+  font-family: "Noto Naskh Arabic", "Segoe UI", Tahoma, sans-serif;
+}
+
+html,
+body,
+#root {
+  background-color: #020617; /* slate-950 */
+  min-height: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Print styles for the Guide */
+@media print {
+  aside,
+  header,
+  button {
+    display: none !important;
+  }
+  body,
+  html,
+  #root,
+  main {
+    background: white !important;
+    color: black !important;
+  }
+  .bg-slate-900\/60,
+  .bg-slate-900\/95,
+  .bg-slate-950\/60,
+  .bg-slate-950\/40,
+  [class*="bg-gradient-to-br"] {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #ddd !important;
+  }
+  h1, h2, h3, h4, p, span, li {
+    color: black !important;
+  }
+  .text-slate-300, .text-slate-400, .text-slate-500 {
+    color: #444 !important;
+  }
+}

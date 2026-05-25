@@ -1,0 +1,8 @@
+.vercel
+node_modules/
+dist/
+.ngrok-token
+server/*.sqlite
+server/*.sqlite-*
+server/ngrok-config.json
+npm-debug.log*

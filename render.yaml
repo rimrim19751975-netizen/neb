@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ai-academy-backend
+    plan: starter
+    runtime: node
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    rootDir: .
+    disk:
+      name: ai-academy-sqlite
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 20
