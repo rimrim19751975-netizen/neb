@@ -30,6 +30,15 @@ export interface ServerSnapshot {
 const SERVER_URL_KEY = "ai-academy-server-url";
 
 export function getServerUrl(): string {
+  const host = window.location.hostname;
+  const isLocal =
+    host === "localhost" ||
+    host === "127.0.0.1" ||
+    host === "::1" ||
+    host.endsWith(".local");
+
+  if (!isLocal) return window.location.origin;
+
   return localStorage.getItem(SERVER_URL_KEY) ?? "";
 }
 

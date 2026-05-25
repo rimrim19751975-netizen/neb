@@ -176,6 +176,33 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setServerStatus("offline");
       return;
     }
+
+    const isSameOrigin =
+      typeof window !== "undefined" && serverUrl === window.location.origin;
+
+    if (isSameOrigin) {
+      let stopped = false;
+      setServerStatus("connecting");
+
+      const sync = async () => {
+        try {
+          await api.health(serverUrl);
+          if (stopped) return;
+          setServerStatus("live");
+          await resyncFromServer();
+        } catch {
+          if (!stopped) setServerStatus("offline");
+        }
+      };
+
+      sync();
+      const interval = window.setInterval(sync, 10000);
+      return () => {
+        stopped = true;
+        window.clearInterval(interval);
+      };
+    }
+
     const live = new LiveSync(
       serverUrl,
       (e) => {
