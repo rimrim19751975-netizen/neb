@@ -1,3 +1,4 @@
+# Render Blueprint for the AI Academy web service.
 services:
   - type: web
     name: ai-academy-backend
