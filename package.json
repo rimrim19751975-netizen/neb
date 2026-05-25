@@ -12,6 +12,7 @@
     "postinstall": "node -e \"require('better-sqlite3')\""
   },
   "dependencies": {
+    "@libsql/client": "^0.17.3",
     "@ngrok/ngrok": "^1.4.1",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
